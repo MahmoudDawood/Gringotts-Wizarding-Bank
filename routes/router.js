@@ -12,16 +12,32 @@ app.get('/', (req, res) => {
 })
 
 app.get('/about', (req, res) => {
-    res.render('index', {
+    res.render('about', {
         title: 'About',
         name: 'About Page'
     })
 })
 
+const customers = [
+    {
+        name: 'James',
+        balance: 5000
+    },
+    {
+        name: 'Lilly',
+        balance: 2000
+    },
+    {
+        name: 'Harry',
+        balance: 10000
+    }
+]
+
 app.get('/customers', (req, res) => {
-    res.render('index', {
+    res.render('customers', {
         title: 'Customers',
-        name: 'All Customers Page'
+        name: 'Customers Page',
+        customers
     })
 })
 
@@ -40,10 +56,10 @@ app.get('/customers/customer/transfer', (req, res) => {
 })
 
 app.get('*', (req, res) => {
-    res.render('index', {
-        title: 'Not found!',
+    res.status(404).render('404', {
+        title: 'Not Found',
         name: '404'
-    }).status(404)
+    })
 })
 
 module.exports = app
