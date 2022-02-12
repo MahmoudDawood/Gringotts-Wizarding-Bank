@@ -6,9 +6,11 @@
     <div class="blogs content">
         <h2>Customers</h2>
         <% if (customers.length > 0) { %>
-            <% customers.forEach(customer => { %> 
-                <%= customer.name %> 
-                <%= customer.balance %> <br>
+            <% customers.forEach(customer => { %>  
+                <a href="/customers/<%= customer._id %>">
+                    <%= customer.name %> <br>
+                    <%= customer.balance %> <br><br>
+                </a>
             <% }) %> 
         <% } %>  
     </div>
