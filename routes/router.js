@@ -1,8 +1,10 @@
+const path = require('path')
 const express = require('express')
 const mongoose = require('mongoose')
 const dbURL = require('../config')
 const User = require('../models/user')
 const Process = require('../models/process')
+
 
 // Connect to MongoDB
 const connection = mongoose.connect(dbURL)
@@ -12,6 +14,9 @@ const connection = mongoose.connect(dbURL)
 const app = express()
 
 app.set('view engine', 'ejs')
+
+// middleware for static files
+app.use(express.static('public'))
 
 // Allow passing url encoded data into object
 app.use(express.urlencoded({ extended: true }))

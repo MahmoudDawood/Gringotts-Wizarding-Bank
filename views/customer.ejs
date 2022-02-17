@@ -3,7 +3,7 @@
 <body>
     <%- include('./partials/nav')%>
 
-    <div class="blogs content">
+    <div class="content index">
         <h2><%= customer.name %></h2>
         <h3>Balance: <%= customer.balance %> </h3>
 
@@ -20,7 +20,9 @@
             <label for="amount">Amount to transfer</label>
             <input name="amount" type="number" placeholder="0000" required>
             <input type="hidden" name="source" value="<%= customer._id %>">
-            <button type="submit">Transfer</button>
+            <div>
+                <button type="submit">Transfer</button>
+            </div>
 
         </form>
     </div>
